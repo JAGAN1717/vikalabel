@@ -94,7 +94,7 @@ const Footer = () => {
                 {getIcon({
                   iconList: socialIcons,
                   iconName: item.icon,
-                  className:`w-7 h-4 ${item.icon == 'FacebookIcon' && 'text-blue-600'} ${item.icon == 'InstagramIcon' && 'text-pink-600' } ${item.icon == 'TwitterIcon' && 'text-sky-600' } ${item.icon == 'YouTubeIcon' && 'text-red-600'}`,
+                  className:`w-7 h-4 ${item.icon == 'FacebookIcon' && 'hover:text-blue-600'} ${item.icon == 'InstagramIcon' && 'hover:text-pink-600' } ${item.icon == 'TwitterIcon' && 'hover:text-sky-600' } ${item.icon == 'YouTubeIcon' && 'hover:text-red-600'}`,
                 })}
               </a>
             ))}
