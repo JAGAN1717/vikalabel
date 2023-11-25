@@ -413,14 +413,14 @@ const Clothings = ({ variables }: any) => {
               } */}
               <div
                 ref={(node) => setPrevEl(node)}
-                className="prev-arrow"
+                className="prev-arrow hover:text-accent focus:outline-none cursor-pointer"
               >
                 <span className="sr-only">{t('text-previous')}</span>
                 {isRTL ? <ArrowNextIcon /> : <ArrowPrevIcon />}
               </div>
               <div
                 ref={(node) => setNextEl(node)}
-                className="next-arrow"
+                className="next-arrow hover:text-accent focus:outline-none cursor-pointer"
               >
                 <span className="sr-only">{t('text-next')}</span>
                 {isRTL ? <ArrowPrevIcon /> : <ArrowNextIcon />}

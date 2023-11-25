@@ -11,7 +11,7 @@ import { authorizationAtom } from '@/store/authorization-atom';
 import { useAtom } from 'jotai';
 import { getIcon } from '@/lib/get-icon';
 import * as socialIcons from '@/components/icons/social';
-
+import { MapPin } from '../icons/map-pin';
 
 
 
@@ -62,21 +62,25 @@ const Footer = () => {
       {/* Top */}
       {/* <div className=" container mx-auto px-4 grid w-full grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-6 md:pt-16 md:grid-cols-4 lg:pt-24 lg:pb-16 xl:grid-cols-[repeat(auto-fill,minmax(220px,1fr))] xl:gap-8 2xl:grid-cols-5"> */}
       <div className=" container mx-auto px-4 grid w-full grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-6 md:pt-16 md:grid-cols-4 lg:pt-24 lg:pb-16 xl:grid-cols-4 xl:gap-8 2xl:grid-cols-4">
-        <div className="flex flex-col">
+        
+        <div className="flex flex-col ">
           <div className="mb-[2px] flex h-16 items-start">
             <Logo />
           </div>
+          <div className="flex justify-between">
+            {/* <MapPin  /> */}
 
-          <address className="mb-7 text-md not-italic text-heading">
+          <address className="mb-2 text-md not-italic text-heading">
             {t(settings?.contactDetails?.location?.formattedAddress)}
             {/* {t(siteSettings.footer.address)} */}
           </address>
+          </div>
           {/* <span className="mb-1 text-md text-heading cursor-pointer hover:text-lime-900" onClick={() => window.open('https://' + settings?.contactDetails?.website, '_blank')}> */}
-          <span className="mb-1 text-md text-heading " >
+          <span className="mb-2 text-md text-heading" >
             {t(settings?.contactDetails?.website)}
             {/* {t(siteSettings.footer.email)} */}
           </span>
-          <span className="text-md text-heading">
+          <span className="text-md text-heading"> 
             {t(settings?.contactDetails?.contact)}
             {/* {t(siteSettings.footer.phone)} */}
           </span>
