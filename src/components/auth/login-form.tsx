@@ -110,9 +110,9 @@ function LoginForm() {
         >
           <MobileIcon className="h-5 text-light ltr:mr-2 rtl:ml-2" />
           {t('text-login-mobile')}
-        </Button>
+        </Button> */}
 
-        {isCheckout && guestCheckout && (
+        {guestCheckout && (
           <Button
             className="h-11 w-full !bg-pink-700 !text-light hover:!bg-pink-800 sm:h-12"
             disabled={isLoading}
@@ -121,7 +121,7 @@ function LoginForm() {
             <AnonymousIcon className="h-6 text-light ltr:mr-2 rtl:ml-2" />
             {t('text-guest-checkout')}
           </Button>
-        )} */}
+        )}
       </div>
       <div className="relative mt-8 mb-6 flex flex-col items-center justify-center text-sm text-heading sm:mt-11 sm:mb-8">
         <hr className="w-full" />

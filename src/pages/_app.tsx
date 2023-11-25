@@ -124,9 +124,11 @@ function CustomApp({
             </SearchProvider>
           </QueryProvider>
         </SessionProvider>
-            <button onClick={()=>topFunction()} id="myBtnsdsdd" className='fixed bg-accent hidden rounded-full top_arrow h-12 p-5 w-12'  title="Go to top">
+            {/* <button onClick={()=>topFunction()} id="myBtnsdsdd" className='fixed bg-accent hidden rounded-full top_arrow h-12 p-5 w-12'  title="Go to top"> */}
+            <button  className='fixed   rounded-full top_arrow h-12 w-12 wat-icon'  title="Go to top">
             {/* <i className="fa fa-angle-double-up text-light" aria-hidden="true"></i> */}
-             <img src='/img/Up-arrow-white.png' className='' />
+             {/* <img src='/img/Up-arrow-white.png' className='' /> */}
+             <img src='/img/Instagram.jpg' className='rounded-full' />
             </button>
       </div>
     </>

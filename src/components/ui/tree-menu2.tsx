@@ -14,6 +14,7 @@ interface TreeMenuItemProps {
   item: any;
   className?: string;
   depth?: number;
+  type?:string;
 }
 const TreeMenuItem: React.FC<TreeMenuItemProps> = ({
   className,
@@ -36,15 +37,15 @@ const TreeMenuItem: React.FC<TreeMenuItemProps> = ({
   function toggleCollapse() {
     setOpen((prevValue) => !prevValue);
   }
-  // console.log('isMobileOnlyisMobileOnlyss',isMobile)
+//   console.log('isMobileOnlyisMobileOnlyss',item)
 
   function onClick() {
     const { pathname, query } = router;
     const navigate = () =>
       router.push(
         {
-          pathname,
-          query: { ...query, category: slug },
+          pathname:`/${item?.type?.slug}/search`,
+          query: {category: slug },
         },
         undefined,
         {
@@ -125,6 +126,7 @@ const TreeMenuItem: React.FC<TreeMenuItemProps> = ({
                     key={`${currentItem.name}${currentItem.slug}`}
                     item={currentItem}
                     depth={childDepth}
+                    type={item?.type?.slug}
                     className={cn('text-sm text-body ltr:ml-5 rtl:mr-5')}
                   />
                 );
@@ -143,6 +145,7 @@ const TreeMenuItems: React.FC<TreeMenuItemProps> = ({
   className,
   item,
   depth = 0,
+  type,
 }) => {
   const router = useRouter();
   const active = router?.query?.category;
@@ -166,8 +169,8 @@ const TreeMenuItems: React.FC<TreeMenuItemProps> = ({
     const navigate = () =>
       router.push(
         {
-          pathname,
-          query: { ...query, category: slug },
+            pathname:`/${type}/search`,
+          query: {category: slug },
         },
         undefined,
         {

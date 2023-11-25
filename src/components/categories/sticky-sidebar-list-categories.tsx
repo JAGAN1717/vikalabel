@@ -31,6 +31,7 @@ const StickySidebarListCategories: React.FC<
       </div>
     );
   }
+
   return (
     <aside
       className={`hidden h-full bg-light lg:sticky mt-7 lg:top-22 md:block xl:w-72 ${className}`}
@@ -56,7 +57,7 @@ const StickySidebarListCategories: React.FC<
           </Scrollbar>
         </div>
       )}
-
+      
       {isMobile && (
         <div className="max-h-full grow overflow-hidden">
           {!notFound ? (

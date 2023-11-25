@@ -99,7 +99,9 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
   );
   return (
     <div className={className}>
+      
       <div className="flex flex-col pb-2 border-b border-border-200">
+        
         {!isEmptyCart ? (
           items?.map((item) => {
             const notAvailable = verifiedResponse?.unavailable_products?.find(

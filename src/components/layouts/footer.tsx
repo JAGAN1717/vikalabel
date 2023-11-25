@@ -9,6 +9,10 @@ import { UrlObject } from 'url';
 import { useSettings } from '@/framework/settings';
 import { authorizationAtom } from '@/store/authorization-atom';
 import { useAtom } from 'jotai';
+import { getIcon } from '@/lib/get-icon';
+import * as socialIcons from '@/components/icons/social';
+
+
 
 
 
@@ -23,6 +27,12 @@ const Footer = () => {
   }
 
   const { settings }: any = useSettings()
+  const [socials,setsocials] = useState<any>([]) 
+
+
+  useEffect(()=> {
+    setsocials(settings?.contactDetails?.socials)
+  },[settings])
 
   const [isAuthorize] = useAtom(authorizationAtom);
 
@@ -70,6 +80,26 @@ const Footer = () => {
             {t(settings?.contactDetails?.contact)}
             {/* {t(siteSettings.footer.phone)} */}
           </span>
+
+          {socials && (
+          <div className="mt-5 flex items-center space-x-5 rtl:space-x-reverse">
+            {socials?.map((item: any, index: number) => (
+              <a
+                key={index}
+                href={item.url}
+                target="_blank"
+                className={`cursor-pointer text-body transition-colors duration-300 hover:text-accent focus:outline-none`}
+                rel="noreferrer"
+              >
+                {getIcon({
+                  iconList: socialIcons,
+                  iconName: item.icon,
+                  className:`w-7 h-4 ${item.icon == 'FacebookIcon' && 'text-blue-600'} ${item.icon == 'InstagramIcon' && 'text-pink-600' } ${item.icon == 'TwitterIcon' && 'text-sky-600' } ${item.icon == 'YouTubeIcon' && 'text-red-600'}`,
+                })}
+              </a>
+            ))}
+          </div>
+        )}
         </div>
 
 
@@ -142,7 +172,10 @@ const Footer = () => {
             title="text-subscribe-now"
             description="text-subscribe-details"
           />
+
         </div>
+
+
       </div>
 
     </div>

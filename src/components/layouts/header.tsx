@@ -357,7 +357,7 @@ const Header = ({ layout }: { layout?: string }) => {
                         data?.children?.map((v:any,i:any)=>(
                         <div className='mb-1' key={i}>
                           <small className='mb-0 mx-2 font-bold text-slate-500 uppercase  cursor-pointer hover:text-lime-900'>
-                          <PrefetchLink  href={`/${v?.type?.slug}/search/?category=${v.slug}`}> {v?.name} </PrefetchLink >
+                          <PrefetchLink  href={`/${data?.type?.slug}/search/?category=${v.slug}`}> {v?.name} </PrefetchLink >
                           </small>
                         </div>
                         ))
@@ -389,7 +389,7 @@ const Header = ({ layout }: { layout?: string }) => {
           <div className='flex justify-center w-full hidden' >
             {/* <div className='grid grid-cols-9 gap-10'> */}
             <div><small className='mb-0 mx-2 font-semibold text-slate-500 cursor-pointer hover:text-lime-900'>
-              <Link href={'/'} className="" title={'Home'} > HOME </Link> </small>
+              <Link href={'/'} className="" title={'Home'}> HOME </Link> </small>
             </div>
             <div><Link href={'/contact'} className="" title={'contactus'}>
               <small className='mb-0 mx-2 font-semibold text-slate-500 cursor-pointer hover:text-lime-900 '>CONTACT US</small>

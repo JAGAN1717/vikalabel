@@ -1109,7 +1109,7 @@ display: -webkit-box;
 }
 
 .top_arrow{
-  bottom: 60px;
+  bottom: 80px;
   right: 30px;
 }
 
@@ -1284,3 +1284,7 @@ display: -webkit-box;
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 } */
+
+.wat-icon {
+  z-index: 999;
+}

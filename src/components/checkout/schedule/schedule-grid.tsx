@@ -19,7 +19,7 @@ export const ScheduleGrid: React.FC<ScheduleProps> = ({
 }) => {
   const { t } = useTranslation('common');
   const {
-    settings: { deliveryTime: schedules },
+    settings: { deliveryTime: schedules,working_days:days },
   }: any = useSettings();
 
   const [selectedSchedule, setSchedule] = useAtom(deliveryTimeAtom);
@@ -37,6 +37,16 @@ export const ScheduleGrid: React.FC<ScheduleProps> = ({
           )}
           <p className="text-lg capitalize text-heading lg:text-xl">{label}</p>
         </div>
+
+        <div className="flex items-center space-x-3 rtl:space-x-reverse md:space-x-4">
+          <p className="text-lg capitalize text-heading lg:text-md"> {t(`Delivery in ${days ?? 7} working days`)}</p>
+        </div>
+
+        {/* <div className="mb-4 flex items-center hidden flex-col space-x-4 rtl:space-x-reverse">
+          <span className="text-base font-bold text-heading">
+            {t(`Delivery in ${days ?? 7} working days`)}
+          </span>
+        </div> */}
       </div>
 
       {schedules && schedules?.length ? (
