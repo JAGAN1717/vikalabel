@@ -8,10 +8,12 @@ import { useSendOtpCode, useVerifyOtpCode } from '@/framework/user';
 
 interface OtpFormProps {
   phoneNumber: string | undefined;
+  id: any | undefined;
   onVerifySuccess: (values: { phone_number: string }) => void;
 }
 export default function OtpForm({
   phoneNumber,
+  id,
   onVerifySuccess,
 }: OtpFormProps) {
   const { t } = useTranslation('common');
@@ -29,8 +31,12 @@ export default function OtpForm({
   });
 
   function onSendCodeSubmission({ phone_number }: { phone_number: string }) {
-    sendOtpCode({
-      phone_number: `+${phone_number}`,
+    // sendOtpCode({
+    //   phone_number: `+${phone_number}`,
+    //   user_id:id
+    // });
+    onVerifySuccess({
+      phone_number: phone_number,
     });
   }
 

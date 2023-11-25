@@ -28,9 +28,11 @@ const SlidingCardCategories: React.FC<SlidingCardCategoriesProps> = ({
   }
   return (
     // <SectionBlock title="text-which-book">
-    <div className='bg-white'>
+    <div className=''>
       {/* <SectionBlock className='pt-8'> */}
-      <section className='pt-8'>
+      {
+      categories?.length > 0 &&
+      <section className='md:pt-20 pt-8'>
         <div className='container mx-auto '>
         <div className='flex justify-center w-full mb-6'>
           <div className='text-center '>
@@ -49,10 +51,11 @@ const SlidingCardCategories: React.FC<SlidingCardCategoriesProps> = ({
         </div>
         </div>
       </section>
+      }
       {/* </SectionBlock> */}
       
-      <section className='pt-8 mb-8'>
-        <div className='container mx-auto'>
+      <section className='md:pt-20 pt-8 mb-8 hidden'>
+        <div className='container w-full px-4 mx-auto'>
         <div className='flex justify-center w-full mb-6'>
           <div className='text-center '>
             <h6 className='font-bold sm:text-3xl text-2xl mb-2'>Shop By Collection</h6>

@@ -1,19 +1,22 @@
 import { Routes } from '@/config/routes';
-import { PaymentGateway } from '@/types';
+import { PaymentGateway } from '@/types'; 
+
+
+
 
 export const siteSettings = {
-  name: 'PickBazar',
+  name: 'Vikalabel',
   description: '',
   logo: {
     url: '/logo.svg',
-    alt: 'PickBazar',
+    alt: 'Vikalabel',
     href: '/grocery',
     // href: '/clothing',
     width: 128,
     height: 40,
   },
   defaultLanguage: 'en',
-  currencyCode: 'USD',
+  currencyCode: 'INR',
   product: {
     placeholderImage: '/product-placeholder.svg',
     cardMaps: {
@@ -37,7 +40,7 @@ export const siteSettings = {
     { href: Routes.orders, label: 'auth-menu-my-orders' },
     { href: Routes.cards, label: 'profile-sidebar-my-cards' },
     { href: Routes.wishlists, label: 'profile-sidebar-my-wishlist' },
-    { href: Routes.questions, label: 'profile-sidebar-my-questions' },
+    // { href: Routes.questions, label: 'profile-sidebar-my-questions' },
     { href: Routes.refunds, label: 'text-my-refunds' },
     { href: Routes.reports, label: 'profile-sidebar-my-reports' },
     { href: Routes.checkout, label: 'auth-menu-checkout' },
@@ -56,18 +59,18 @@ export const siteSettings = {
       href: Routes.orders,
       label: 'profile-sidebar-orders',
     },
-    {
-      href: Routes.downloads,
-      label: 'profile-sidebar-downloads',
-    },
+    // {
+    //   href: Routes.downloads,
+    //   label: 'profile-sidebar-downloads',
+    // },
     {
       href: Routes.wishlists,
       label: 'profile-sidebar-my-wishlist',
     },
-    {
-      href: Routes.questions,
-      label: 'profile-sidebar-my-questions',
-    },
+    // {
+    //   href: Routes.questions,
+    //   label: 'profile-sidebar-my-questions',
+    // },
     {
       href: Routes.refunds,
       label: 'text-my-refunds',
@@ -105,99 +108,130 @@ export const siteSettings = {
   footer: {
     copyright: {
       name: 'RedQ, Inc',
-      href: 'https://redq.io/',
+      // href: 'https://redq.io/',
+      href: '',
     },
     address: '2429 River Drive, Suite 35 Cottonhall, CA 2296 United Kingdom',
-    email: 'dummy@dummy.com',
-    phone: '+1 256-698-0694',
+    email: 'vikalabel@gmail.com',
+    phone: '+91 12345-67890',
     menus: [
       {
-        title: 'text-explore',
+        // title: 'text-explore',
+        title: 'INFORMATION',
         links: [
           {
             name: 'text-about-us',
-            href: '/',
-          },
-          {
-            name: 'text-sitemap',
-            href: '/',
-          },
-          {
-            name: 'text-bookmarks',
-            href: '/',
-          },
-          {
-            name: 'text-sign-join',
-            href: '/',
-          },
-        ],
-      },
-      {
-        title: 'text-customer-service',
-        links: [
-          {
-            name: 'text-faq-help',
-            href: Routes.help,
-          },
-          {
-            name: 'text-returns',
-            href: '/',
-          },
-          {
-            name: 'text-accessibility',
-            href: '/',
+            href: '/about',
           },
           {
             name: 'text-contact-us',
             href: Routes.contactUs,
           },
-          {
-            name: 'text-store-pickup',
-            href: '/',
-          },
-        ],
-      },
-      {
-        title: 'text-our-information',
-        links: [
-          {
-            name: 'text-privacy-update',
-            href: Routes.privacy,
-          },
+          // {
+          //   name: 'Client Diaries',
+          //   href: '/',
+          // },
+          // {
+          //   name: 'Help',
+          //   href: Routes.help,
+          // },
           {
             name: 'text-terms-condition',
             href: Routes.terms,
           },
+        ],
+      },
+      // {
+      //   // title: 'text-customer-service',
+      //   title: 'CATEGORY',
+      //   links: [
+      //     {
+      //       name: 'Party Wear',
+      //       href: '/',
+      //     },
+      //     {
+      //       name: 'Anarkalis',
+      //       href: '/',
+      //     },
+      //     {
+      //       name: 'Casual Wear',
+      //       href: '/',
+      //     },
+      //     {
+      //       name: 'Designer saree',
+      //       href: '/',
+      //     },
+      //     // {
+      //     //   name: 'Full Sets',
+      //     //   href: '/',
+      //     // },
+      //     // {
+      //     //   name: 'Kurtis',
+      //     //   href: '/',
+      //     // },
+      //   ],
+      // },
+      {
+        title: 'POLICIES',
+        links: [
+          {
+            name: 'Privacy Policy',
+            href: Routes.privacy,
+          },
+          // {
+          //   name: 'text-terms-condition',
+          //   href: Routes.terms,
+          // },
           {
             name: 'text-return-policy',
-            href: '/',
+            href: '/rpolicy',
           },
           {
-            name: 'text-sitemap',
-            href: '/',
+            name: 'Shipping Policy',
+            href: '/spolicy',
           },
         ],
       },
     ],
     payment_methods: [
       {
-        img: '/payment/master.png',
+        // img: '/payment/master.png',
+        img: '/img/_-01.png',
+        url: '/',
+      },
+      // {
+      //   // img: '/payment/skrill.png',
+      //   img: '/img/_-02.png',
+      //   url: '/',
+      // },
+      {
+        // img: '/payment/paypal.png',
+        img: '/img/_-03.png',
         url: '/',
       },
       {
-        img: '/payment/skrill.png',
+        // img: '/payment/visa.png',
+        img: '/img/_-04.png',
         url: '/',
       },
       {
-        img: '/payment/paypal.png',
+        // img: '/payment/discover.png',
+        img: '/img/_-05.png',
         url: '/',
       },
       {
-        img: '/payment/visa.png',
+        // img: '/payment/discover.png',
+        img: '/img/_-06.png',
         url: '/',
       },
       {
-        img: '/payment/discover.png',
+        // img: '/payment/discover.png',
+        img: '/img/_-09.png',
+        url: '/',
+      },
+      {
+        // img: '/payment/discover.png',
+        img: '/img/_-08.png',
         url: '/',
       },
     ],

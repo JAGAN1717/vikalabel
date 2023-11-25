@@ -26,7 +26,7 @@ export function useTypes(options?: Partial<TypeQueryOptions>) {
 export function useType(slug: string) {
   const { locale } = useRouter();
 
-  console.log("yyyyyyyyyy",slug)
+  // console.log("yyyyyyyyyy",slug)
 
   const { data, isLoading, error } = useQuery<Type, Error>(
     [API_ENDPOINTS.TYPES, { slug, language: locale }],

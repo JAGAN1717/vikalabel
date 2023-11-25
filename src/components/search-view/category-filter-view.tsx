@@ -7,6 +7,7 @@ import { useTranslation } from 'next-i18next';
 import { useCategories } from '@/framework/category';
 import ErrorMessage from '@/components/ui/error-message';
 import Spinner from '@/components/ui/loaders/spinner/spinner';
+import Categories from '@/components/categories/categories';
 
 interface Props {
   categories: any[];
@@ -61,12 +62,21 @@ const CategoryFilterView = ({ categories }: Props) => {
 const CategoryFilter: React.FC<{ type?: any }> = ({ type }) => {
   const { query, locale } = useRouter();
 
+
+  
+  
   // @ts-ignore
   const { categories, isLoading, error } = useCategories({
     ...(type ? { type } : { type: query.searchType }),
     limit: 1000,
   });
 
+  const varient = {
+    language: "en",
+    limit: 1000,
+    type: "clothing"
+  }      
+  
   if (error) return <ErrorMessage message={error.message} />;
   if (isLoading)
     return (
@@ -75,6 +85,7 @@ const CategoryFilter: React.FC<{ type?: any }> = ({ type }) => {
       </div>
     );
   return <CategoryFilterView categories={categories} />;
+  // return  <Categories layout="classic" variables={varient} />
 };
 
 export default CategoryFilter;

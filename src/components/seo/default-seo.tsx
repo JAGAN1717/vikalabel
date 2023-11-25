@@ -1,8 +1,15 @@
 import { useSettings } from '@/framework/settings';
+import ErrorMessage from '@/components/ui/error-message';
+import PageLoader from '@/components/ui/loaders/page-loader';
 import { DefaultSeo as NextDefaultSeo } from 'next-seo';
 
 const DefaultSeo = () => {
-  const { settings } : any = useSettings();
+  const { settings,isLoading, error } : any = useSettings();
+  
+  //   if (isLoading) return <PageLoader />;
+  // if (error) return <ErrorMessage message={error.message} />;
+
+
   return (
     <NextDefaultSeo
       additionalMetaTags={[

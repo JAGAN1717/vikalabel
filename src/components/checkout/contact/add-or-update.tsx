@@ -24,11 +24,11 @@ export default function AddOrUpdateContact() {
         {contactNumber ? t('text-update') : t('text-add-new')}{' '}
         {t('text-contact-number')}
       </h1>
-      {useOtp ? (
+      <PhoneNumberForm onSubmit={onSubmit} phoneNumber={contactNumber} />
+      {/* {useOtp ? (
         <OtpForm phoneNumber={contactNumber} onVerifySuccess={onSubmit} />
       ) : (
-        <PhoneNumberForm onSubmit={onSubmit} phoneNumber={contactNumber} />
-      )}
+      )} */}
     </div>
   );
 }

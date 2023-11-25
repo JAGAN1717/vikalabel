@@ -18,6 +18,8 @@ function FavoriteButton({
   const { isAuthorized } = useUser();
   const { toggleWishlist, isLoading: adding } = useToggleWishlist(productId);
 
+  
+
 const { inWishlist, isLoading: checking } = useInWishlist({
   enabled: isAuthorized,
   product_id: productId,

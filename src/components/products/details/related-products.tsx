@@ -25,7 +25,7 @@ const RelatedProducts = ({
           gridClassName
         )}
       >
-        {products?.map((item: any, idx: number) => {
+        {products?.slice(0,5).map((item: any, idx: number) => {
           if (currentProductId === item.id) {
             return null;
           }

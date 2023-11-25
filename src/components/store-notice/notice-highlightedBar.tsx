@@ -65,11 +65,11 @@ const NoticeHighlightedBar = () => {
     slug: slug as string,
   });
   //@ts-ignore
-  const shopId = shopData?.id!;
+  const shopId = shopData?.id! ?? 2;
 
   //@ts-ignore
   const { storeNotices } = useStoreNotices({
-    shop_id: `${shopId}`,
+    shop_id: `${shopId ?? 2}`,
   });
 
   return (

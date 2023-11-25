@@ -1,4 +1,8 @@
 export const API_ENDPOINTS = {
+  INSTAGRAM : '/instagramPostsGet',
+  LUXE_S:'/home-luxe-section-get',
+  FRONTPAGE:'/get-frontend-pages',
+  COUNTERUP:'/counterup-get',
   PRODUCTS: '/products',
   PRODUCTS_POPULAR: '/popular-products',
   PRODUCTS_REVIEWS: '/reviews',

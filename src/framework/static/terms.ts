@@ -1,6 +1,6 @@
 export const termsAndServices = {
   title: 'terms-main-title',
-  date: '01/01/2020',
+  date: '',
   content: [
     {
       id: '1',

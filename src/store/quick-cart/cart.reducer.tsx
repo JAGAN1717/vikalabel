@@ -58,7 +58,7 @@ export function cartReducer(state: State, action: Action): State {
         action.item,
         action.quantity
       );
-  console.log('kjhskdgdskdgdskdghd', action.quantity)
+  // console.log('kjhskdgdskdgdskdghd', action.quantity)
 
       return generateFinalState(state, items);
     }

@@ -29,6 +29,9 @@ const ProductPage: NextPageWithLayout<
   InferGetStaticPropsType<typeof getStaticProps>
 > = ({ product }: any) => {
   const { width } = useWindowSize();
+
+  // console.log('productproduct',product)
+
   return (
     <>
       <Seo
@@ -56,11 +59,11 @@ const ProductPage: NextPageWithLayout<
             productId={product?.id}
             productType={product?.type?.slug}
           />
-          <ProductQuestions
+          {/* <ProductQuestions
             productId={product?.id}
             shopId={product?.shop?.id}
             productType={product?.type?.slug}
-          />
+          /> */}
           {product.type?.slug !== 'books' &&
             product?.related_products?.length > 1 && (
               <div className="p-5 lg:p-14 xl:p-16">

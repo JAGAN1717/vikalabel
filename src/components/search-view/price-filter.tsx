@@ -3,8 +3,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
-const defaultPriceRange = [0, 1000];
-const PriceFilter = () => {
+const defaultPriceRange = [0, 100000];
+const PriceFilter:React.FC<{minsetPrice?:(() => {} | undefined) | any; priceVal:any}> = ({minsetPrice,priceVal}) => {
   const { t } = useTranslation('common');
   const router = useRouter();
   const selectedValues = useMemo(
@@ -14,22 +14,33 @@ const PriceFilter = () => {
         : defaultPriceRange,
     [router.query.price]
   );
+
   const [state, setState] = useState<number[] | string[]>(selectedValues);
 
   useEffect(() => {
     setState(selectedValues);
   }, [selectedValues]);
 
+  useEffect(()=> {
+    if(!priceVal){
+      setState(selectedValues);
+    }
+  },[priceVal])
+
+
   function handleChange(value: number[]) {
     setState(value);
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        price: value.join(','),
-      },
-    });
-  }
+    // router.push({
+    //   pathname: router.pathname,
+    //   // pathname: 'https://vl.vrikshatech.in/api/public',
+    //   query: {
+    //     ...router.query,
+    //     price: value.join(','),
+    //   },
+    // });
+    minsetPrice(value.join(','))
+  } 
+
 
   return (
     <>
@@ -38,7 +49,7 @@ const PriceFilter = () => {
         allowCross={false}
         range
         min={0}
-        max={2000}
+        max={100000}
         //@ts-ignore
         defaultValue={state}
         //@ts-ignore

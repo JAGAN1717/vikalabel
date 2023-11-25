@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 import { SessionProvider } from 'next-auth/react';
 import '@/assets/css/main.css';
+import '@/assets/css/nprogress.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ModalProvider } from '@/components/ui/modal/modal.context';
 import ManagedModal from '@/components/ui/modal/managed-modal';
@@ -14,12 +15,33 @@ import SocialLogin from '@/components/auth/social-login';
 import { NextPageWithLayout } from '@/types';
 import QueryProvider from '@/framework/client/query-provider';
 import { getDirection } from '@/lib/constants';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
+import nProgress from 'nprogress'
+import ErrorMessage from '@/components/ui/error-message';
+import PageLoader from '@/components/ui/loaders/page-loader';
+import { useSettings } from '@/framework/settings';
+
+Router.events.on('routeChangeStart', nProgress.start)
+Router.events.on('routeChangeError', nProgress.done)
+Router.events.on('routeChangeComplete', nProgress.done)
+
 const ToastContainer = dynamic(
   () => import('react-toastify').then((module) => module.ToastContainer),
   { ssr: false }
 );
+
+
+// const AppSettings: React.FC<{ children?: React.ReactNode }> = (props) => {
+//   const { query, locale } = useRouter();
+//   const { settings, isLoading, error } = useSettings();
+//   if (isLoading) return <PageLoader />;
+//   if (error) return <ErrorMessage message={error.message} />;
+//   // TODO: fix it
+//   // @ts-ignore
+//   return <SettingsProvider initialValue={settings?.options} {...props} />;
+// };
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
@@ -39,13 +61,18 @@ function CustomApp({
   const { locale } = useRouter();
   const dir = getDirection(locale);
 
+ 
+
   if (typeof window === "undefined") {
     return null;
   }
   
+  const [rangePrice,setRangePrcie] = useState<any>()
+
   window.onscroll = function() {scrollFunction()};
   
   let mybutton = document.getElementById("myBtnsdsdd");
+
   
   function scrollFunction() {
     if(mybutton){
@@ -59,7 +86,7 @@ function CustomApp({
         mybutton.classList.add('hidden')
       }
     }
-}
+ }
 
   function topFunction() {
     window.scrollTo({
@@ -67,6 +94,8 @@ function CustomApp({
       behavior: 'smooth'
     });
 }
+
+
 
   return (
     <>
@@ -83,7 +112,7 @@ function CustomApp({
                         {getLayout(<Component {...pageProps} />)}
                       </PrivateRoute>
                     ) : (
-                      getLayout(<Component {...pageProps} />)
+                       getLayout(<Component {...pageProps} />)
                     )}
                     <ManagedModal />
                     <ManagedDrawer />
@@ -95,9 +124,9 @@ function CustomApp({
             </SearchProvider>
           </QueryProvider>
         </SessionProvider>
-            <button onClick={()=>topFunction()} id="myBtnsdsdd" className='fixed bg-accent hidden rounded-full top_arrow h-12 p-5 w-12 '     title="Go to top">
+            <button onClick={()=>topFunction()} id="myBtnsdsdd" className='fixed bg-accent hidden rounded-full top_arrow h-12 p-5 w-12'  title="Go to top">
             {/* <i className="fa fa-angle-double-up text-light" aria-hidden="true"></i> */}
-            <img src='/img/Up-arrow-white.png' className='' />
+             <img src='/img/Up-arrow-white.png' className='' />
             </button>
       </div>
     </>

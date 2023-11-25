@@ -20,7 +20,6 @@ const PrivateRoute: React.FC<{ children?: React.ReactNode }> = ({
   const { me, isAuthorized } = useUser();
   const hasMounted = useHasMounted();
   const isUser = !!me;
-
   const {emailVerified} = getEmailVerified();
   if (!isUser && !isAuthorized && hasMounted) {
     return (

@@ -33,7 +33,7 @@ const StipeElementViewHeader: React.FC<Props> = ({
         <h1 className="text-center text-lg font-semibold text-heading sm:text-xl">
           {t('profile-new-cards')}
         </h1>
-        {
+        {/* {
           settings.StripeCardOnly && (
             <button
               className="flex items-center text-sm font-semibold text-accent capitalize"
@@ -42,7 +42,7 @@ const StipeElementViewHeader: React.FC<Props> = ({
               {t('Try another method')}
             </button>
           )
-        }
+        } */}
       </div>
     </>
   );

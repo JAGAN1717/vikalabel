@@ -40,7 +40,7 @@ function OrderView({ order, language, loadingStatus }: any) {
   const { price: tax } = usePrice({ amount: order?.sales_tax ?? 0 });
   const { price: discount } = usePrice({ amount: order?.discount ?? 0 });
   return (
-    <div className="p-4 sm:p-8">
+    <div className="p-4 sm:p-15">
       <div className="mx-auto w-full max-w-screen-lg">
         <div className="mb-5">
           <Link

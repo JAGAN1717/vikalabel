@@ -13,16 +13,26 @@ import { drawerAtom } from '@/store/drawer-atom';
 import ArrowNarrowLeft from '@/components/icons/arrow-narrow-left';
 import { useIsRTL } from '@/lib/locals';
 import Button from '@/components/ui/button';
+import Categories from '@/components/categories/categories';
+import { useSearch } from '@/components/ui/search/search.context';
+
+
 
 const FieldWrapper = ({ children, title }: any) => (
   <div className="border-b border-gray-200 py-7 last:border-0">
     <CustomDisclosure title={title}>{children}</CustomDisclosure>
   </div>
-);
+  
+); 
 
-function ClearFiltersButton() {
+
+
+function ClearFiltersButton({minsetPrice}:any) {
   const { t } = useTranslation('common');
   const router = useRouter();
+
+  const { searchTerm, updateSearchTerm } = useSearch();
+
 
   function clearFilters() {
     const {
@@ -35,6 +45,8 @@ function ClearFiltersButton() {
       text,
       ...rest
     } = router.query;
+    minsetPrice();
+    updateSearchTerm('')
     router.push({
       pathname: router.pathname,
       query: {
@@ -53,14 +65,27 @@ function ClearFiltersButton() {
   );
 }
 const SidebarFilter: React.FC<{
+  setPrice?:(() => {} | undefined) | any;
+  getPrice?:any;
   type?: string;
   showManufacturers?: boolean;
   className?: string;
-}> = ({ type, showManufacturers = true, className }) => {
+}> = ({ type, showManufacturers = true, className, setPrice, getPrice}) => {
+  
   const router = useRouter();
   const { isRTL } = useIsRTL();
   const { t } = useTranslation('common');
   const [_, closeSidebar] = useAtom(drawerAtom);
+
+  const varient = {
+    language: "en",
+    limit: 1000,
+    type: "clothing"
+  } 
+
+
+
+
 
   return (
     <div
@@ -89,13 +114,13 @@ const SidebarFilter: React.FC<{
           </h3>
         </div>
 
-        <ClearFiltersButton />
+        <ClearFiltersButton minsetPrice={setPrice} />
       </div>
 
       <div className="flex-1 px-5">
-        <FieldWrapper title="text-search">
+        {/* <FieldWrapper title="text-search">
           <Search variant="minimal" label="search" />
-        </FieldWrapper>
+        </FieldWrapper> */}
 
         {router.route !== '/[searchType]/search' && (
           <FieldWrapper title="text-sort">
@@ -104,22 +129,23 @@ const SidebarFilter: React.FC<{
         )}
 
         <FieldWrapper title="text-categories">
-          <CategoryFilter type={type} />
+          {/* <CategoryFilter type={type} /> */}
+          <Categories layout="classic" variables={varient} />
         </FieldWrapper>
 
         <FieldWrapper title="text-sort-by-price">
-          <PriceFilter />
+          <PriceFilter minsetPrice={setPrice} priceVal={getPrice} />
         </FieldWrapper>
 
         <FieldWrapper title="text-tags">
           <TagFilter />
         </FieldWrapper>
 
-        {showManufacturers && (
+        {/* {showManufacturers && (
           <FieldWrapper title="text-manufacturers">
             <ManufacturerFilter />
           </FieldWrapper>
-        )}
+        )} */}
       </div>
       <div className="sticky bottom-0 z-10 mt-auto border-t border-gray-200 bg-white p-5 lg:hidden">
         <Button

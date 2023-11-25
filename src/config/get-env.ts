@@ -1,7 +1,8 @@
 type EnvVariables = {
   readonly ENV: 'production' | 'staging' | 'development' | 'test';
   readonly NODE_ENV: 'production' | 'development';
-  readonly FRAMEWORK_PROVIDER: 'graphql' | 'rest';
+  // readonly FRAMEWORK_PROVIDER: 'graphql' | 'rest';
+  readonly FRAMEWORK_PROVIDER:'rest';
   readonly NEXT_PUBLIC_REST_API_ENDPOINT: string;
   readonly NEXT_PUBLIC_GRAPHQL_API_ENDPOINT: string;
   readonly NEXT_PUBLIC_DEFAULT_LANGUAGE: string;

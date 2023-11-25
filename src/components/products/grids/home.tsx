@@ -18,6 +18,8 @@ export default function ProductGridHome({
   const { products, loadMore, isLoadingMore, isLoading, hasMore, error } =
     useProducts({
       ...variables,
+      orderBy: 'created_at',
+      sortedBy: 'DESC',
       ...(query.category && { categories: query.category }),
       ...(query.text && { name: query.text }),
     });

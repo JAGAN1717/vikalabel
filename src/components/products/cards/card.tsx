@@ -29,7 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const Component = product?.type?.settings?.productCard
     ? MAP_PRODUCT_TO_CARD['radon']
-    : Helium;
+    : Radon;
   return <Component product={product}  {...props} className={className} />;
 };
 export default ProductCard;

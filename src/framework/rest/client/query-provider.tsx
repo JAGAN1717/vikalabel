@@ -23,7 +23,7 @@ export default function QueryProvider({
         }
       >
         {children}
-      </Hydrate>  
+      </Hydrate>
       {/* <ReactQueryDevtools /> */}
     </QueryClientProvider>
   );

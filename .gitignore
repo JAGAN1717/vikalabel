@@ -51,3 +51,4 @@ package.graphql.json
 
 .graphql-let.general.yml
 .graphql-let.windows.yml
+.vercel

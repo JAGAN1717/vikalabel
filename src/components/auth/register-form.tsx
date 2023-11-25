@@ -23,6 +23,12 @@ function RegisterForm() {
   const { t } = useTranslation('common');
   const { openModal } = useModalAction();
   const { mutate, isLoading, formError } = useRegister();
+  const router = useRouter();
+  const { closeModal } = useModalAction();
+  function handleNavigate(path: string) {
+    router.push(`/${path}`);
+    closeModal();
+  }
 
   function onSubmit({ name, email, password }: RegisterUserInput) {
     mutate({
@@ -63,6 +69,24 @@ function RegisterForm() {
               variant="outline"
               className="mb-5"
             />
+
+<p className="mt-4 mb-7 px-2 text-center text-sm leading-relaxed text-body sm:mt-5 sm:mb-10 sm:px-0 md:text-base">
+        {t('registration-helper')}
+        <span
+          onClick={() => handleNavigate('terms')}
+          className="mx-1 cursor-pointer text-accent underline hover:no-underline"
+        >
+          {t('Terms')}
+        </span>
+        &
+        <span
+          onClick={() => handleNavigate('privacy')}
+          className="cursor-pointer text-accent underline hover:no-underline ltr:ml-1 rtl:mr-1"
+        >
+          {t('Policy')}
+        </span>
+      </p>
+
             <div className="mt-8">
               <Button
                 className="h-12 w-full"
@@ -109,23 +133,23 @@ export default function RegisterView() {
       <div className="flex justify-center">
         <Logo />
       </div>
-      <p className="mt-4 mb-7 px-2 text-center text-sm leading-relaxed text-body sm:mt-5 sm:mb-10 sm:px-0 md:text-base">
+      <RegisterForm />
+      {/* <p className="mt-4 mb-7 px-2 text-center text-sm leading-relaxed text-body sm:mt-5 sm:mb-10 sm:px-0 md:text-base">
         {t('registration-helper')}
         <span
           onClick={() => handleNavigate('terms')}
           className="mx-1 cursor-pointer text-accent underline hover:no-underline"
         >
-          {t('text-terms')}
+          {t('Terms')}
         </span>
         &
         <span
           onClick={() => handleNavigate('privacy')}
           className="cursor-pointer text-accent underline hover:no-underline ltr:ml-1 rtl:mr-1"
         >
-          {t('text-policy')}
+          {t('Policy')}
         </span>
-      </p>
-      <RegisterForm />
+      </p> */}
     </div>
   );
 }

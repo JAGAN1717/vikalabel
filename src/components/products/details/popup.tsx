@@ -31,7 +31,7 @@ const Popup: React.FC<ProductPopupProps> = ({ productSlug }) => {
     <AttributesProvider>
       <article className="relative z-[51] w-full max-w-6xl bg-light md:rounded-xl xl:min-w-[1152px]">
         {/* Sticky bar */}
-        <ShortDetails product={productItem} isSticky={showStickyShortDetails} />
+        {/* <ShortDetails product={productItem} isSticky={showStickyShortDetails} /> */}
         {/* End of sticky bar */}
         <Details product={productItem} backBtn={false} isModal={true} />
 

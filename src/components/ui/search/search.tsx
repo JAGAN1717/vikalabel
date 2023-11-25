@@ -23,8 +23,9 @@ const Search: React.FC<Props> = ({ label, variant, ...props }) => {
     const { pathname, query } = router;
     router.push(
       {
-        pathname,
-        query: { ...query, text: searchTerm },
+        pathname:'/clothing/search',
+        // query: { ...query, text: searchTerm },
+        query: {text: searchTerm },
       },
       undefined,
       {
@@ -59,7 +60,7 @@ const Search: React.FC<Props> = ({ label, variant, ...props }) => {
       onChange={handleOnChange}
       value={searchTerm}
       name="search"
-      placeholder={t('Search for product Brands & Category')}
+      placeholder={t('Search for product')}
       variant={variant}
       {...props}
     />

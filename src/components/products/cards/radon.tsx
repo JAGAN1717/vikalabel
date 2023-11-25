@@ -77,7 +77,7 @@ const Radon: React.FC<RadonProps> = ({ product, className }) => {
         />
       </Link>
       <div className='card_wish'>
-        {/* {
+        {/* {z
           in_wishlist ? 
           <HeartFillIcon />
           :
@@ -95,7 +95,7 @@ const Radon: React.FC<RadonProps> = ({ product, className }) => {
               <AddToCart variant="neon" data={product} />
             )}
           </div> */}
-     {product_type.toLowerCase() === 'variable' ? (
+        {product_type.toLowerCase() === 'variable' ? (
           <>
           <div className='card_tf add_vari'>
             {Number(quantity) > 0 && (
@@ -103,10 +103,11 @@ const Radon: React.FC<RadonProps> = ({ product, className }) => {
                 onClick={handleProductQuickView}
                 className="group flex h-7 w-full items-center justify-between rounded bg-gray-100 text-xs text-body-dark transition-colors hover:border-accent hover:bg-accent hover:text-light focus:border-accent focus:bg-accent focus:text-light focus:outline-0 md:h-9 md:text-sm"
               >
-                <span className="flex-1">{t('text-add')}</span>
-                <span className="grid h-7 w-7 place-items-center bg-gray-200 transition-colors duration-200 group-hover:bg-accent-600 group-focus:bg-accent-600 ltr:rounded-tr ltr:rounded-br rtl:rounded-tl rtl:rounded-bl md:h-9 md:w-9">
+                {/* <span className="flex-1">{t('text-add')}</span> */}
+                <span className="flex-1">{t('text-add-to-cart')}</span>
+                {/* <span className="grid h-7 w-7 place-items-center bg-gray-200 transition-colors duration-200 group-hover:bg-accent-600 group-focus:bg-accent-600 ltr:rounded-tr ltr:rounded-br rtl:rounded-tl rtl:rounded-bl md:h-9 md:w-9">
                   <PlusIcon className="h-4 w-4 stroke-2" />
-                </span>
+                </span> */}
               </button>
             )}
             </div>
@@ -121,20 +122,32 @@ const Radon: React.FC<RadonProps> = ({ product, className }) => {
           </>
         )}
       </div>
-
       {/* End of product image */}
 
-      <div className='flex justify-between gap-3 pt-4'>
-        <div className="flex shrink-0 flex-col space-y-2">
-          {name && (
+      {name && (
             <Link
               href={Routes.product(slug)}
-              className="text-sm font-semibold text-heading transition-colors hover:text-green-600 md:text-base"
+              // className="text-sm font-semibold text-heading transition-colors hover:text-green-600 md:text-base truncate"
+              className="text-sm font-semibold text-heading transition-colors hover:text-lime-900 md:text-base truncate pt-4"
               title={name}
             >
               {name}
             </Link>
           )}
+
+      {/* <div className='flex justify-between gap-3 pt-4'> */}
+      <div className='flex justify-between gap-3 pt-2'>
+        <div className="flex shrink-0 flex-col space-y-2 ">
+          {/* {name && (
+            <Link
+              href={Routes.product(slug)}
+              // className="text-sm font-semibold text-heading transition-colors hover:text-green-600 md:text-base truncate"
+              className="text-sm font-semibold text-heading transition-colors hover:text-green-600 md:text-base truncate"
+              title={name}
+            >
+              {name}
+            </Link>
+          )} */}
 
           {author && (
             <span className="text-xs text-gray-400 md:text-sm">
@@ -184,6 +197,7 @@ const Radon: React.FC<RadonProps> = ({ product, className }) => {
           </Link>
           : null}
       </div>
+
       {/* End of product info */}
     </article>
   );

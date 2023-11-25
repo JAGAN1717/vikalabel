@@ -21,7 +21,13 @@ const ProfileAddOrUpdateContact = () => {
         contact: phone_number,
       },
     });
+    // updateProfile({
+    // phone_number:phone_number,
+    // user_id:profileId
+    // });
   }
+
+
 
   return (
     <div className="flex min-h-screen flex-col justify-center bg-light p-5 sm:p-8 md:min-h-0 md:rounded-xl">
@@ -29,7 +35,7 @@ const ProfileAddOrUpdateContact = () => {
         {contact ? t('text-update') : t('text-add-new')}{' '}
         {t('text-contact-number')}
       </h1>
-      <OtpForm phoneNumber={contact} onVerifySuccess={onContactUpdate} />
+      <OtpForm phoneNumber={contact} id={profileId} onVerifySuccess={onContactUpdate} />
     </div>
   );
 };

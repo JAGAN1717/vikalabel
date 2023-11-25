@@ -24,9 +24,11 @@ const AuthorizedMenu: React.FC<{ minimal?: boolean }> = ({ minimal }) => {
   const {totalItems} = useCart()
   const {wishlists} = useWishlist()
   const WishlistC_count = wishlists?.length ?? 0
+  // const WishlistC_count = me?.wishlistCount ?? 0
   function handleClick(path: string) {
     router.push(path);
   }
+
 
 
   return (
@@ -106,12 +108,13 @@ const AuthorizedMenu: React.FC<{ minimal?: boolean }> = ({ minimal }) => {
 
     <div className='flex'>
       <div className='topBage1'>
-      <HeartOutlineIcon onClick={()=>handleClick('/wishlists')} className={cn(`ml-1 active:text-accent hover:text-accent cursor-pointer text-screen transition-all ${router.pathname == '/wishlists'?'text-accent':''}`)} />
+      <HeartOutlineIcon onClick={()=>handleClick('/wishlists')} className={cn(`ml-1 active:text-accent hover:text-accent cursor-pointer text-sad transition-all ${router.pathname == '/wishlists'?'text-accent':''}`)} />
       <span className='topBgde bg-accent'>{WishlistC_count}</span>
       </div>
-      <UserOutlinedIcon onClick={()=>handleClick('/profile')} className={cn(`ml-5 active:text-accent hover:text-accent cursor-pointer text-screen transition-all ${router.pathname == '/profile'?'text-accent':''}`)} />
+      <UserOutlinedIcon onClick={()=>handleClick('/profile')} className={cn(`ml-5 active:text-accent hover:text-accent cursor-pointer text-sad transition-all ${router.pathname == '/profile'?'text-accent':''}`)} />
       <div className='topBage1'>
-      <CartOutlinedIcon onClick={()=>document.getElementById('CartBtnEnable')?.click()} className={cn(`ml-5 active:text-accent hover:text-accent text-screen cursor-pointer  transition-all ${router.pathname == '/orders'?'text-accent':''}`)} />
+      <CartOutlinedIcon onClick={()=>document.getElementById('CartBtnEnable')?.click()} className={cn(`ml-5 active:text-accent hover:text-accent text-sad cursor-pointer  transition-all ${router.pathname == '/orders'?'text-accent':''}`)} />
+      {/* <CartOutlinedIcon onClick={()=>document.getElementById('CartBtnEnable')?.click()} className={cn(`ml-5 active:text-accent hover:text-accent text-screen cursor-pointer  transition-all ${router.pathname == '/orders'?'text-accent':''}`)} /> */}
       <span className='topBgde bg-accent'>{totalItems}</span>
       </div>
     </div>

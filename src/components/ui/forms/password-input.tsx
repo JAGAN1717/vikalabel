@@ -52,24 +52,6 @@ const PasswordInput = React.forwardRef<HTMLInputElement, Props>(
           <label htmlFor={name} className="text-sm font-semibold text-body">
             {label}
           </label>
-
-          {forgotPageLink && (
-            <Link
-              href={forgotPageLink}
-              className="text-xs text-accent transition-colors duration-200 hover:text-accent-hover focus:font-semibold focus:text-accent-700 focus:outline-0"
-            >
-              {t('common:text-forgot-password')}
-            </Link>
-          )}
-          {forgotPageRouteOnClick && (
-            <button
-              onClick={forgotPageRouteOnClick}
-              type="button"
-              className="text-xs text-accent transition-colors duration-200 hover:text-accent-hover focus:font-semibold focus:text-accent-700 focus:outline-0"
-            >
-              {t('common:text-forgot-password')}
-            </button>
-          )}
         </div>
         <div className="relative">
           <input
@@ -100,6 +82,25 @@ const PasswordInput = React.forwardRef<HTMLInputElement, Props>(
               <Eye className="h-6 w-6" />
             )}
           </label>
+        </div>
+        <div className="mt-2 flex items-center justify-end">
+        {forgotPageLink && (
+            <Link
+              href={forgotPageLink}
+              className="text-xs text-accent transition-colors duration-200 hover:text-accent-hover focus:font-semibold focus:text-accent-700 focus:outline-0"
+            >
+              {t('common:text-forgot-password')}
+            </Link>
+          )}
+          {forgotPageRouteOnClick && (
+            <button
+              onClick={forgotPageRouteOnClick}
+              type="button"
+              className="text-xs text-accent transition-colors duration-200 hover:text-accent-hover focus:font-semibold focus:text-accent-700 focus:outline-0"
+            >
+              {t('common:text-forgot-password')}
+            </button>
+          )}
         </div>
         {error && <p className="my-2 text-xs text-red-500">{error}</p>}
       </div>

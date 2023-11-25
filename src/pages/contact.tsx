@@ -53,20 +53,20 @@ export const ContactPage = () => {
             {settings?.contactDetails?.website && (
               <div className="mb-8 flex flex-col">
                 <span className="mb-3 font-semibold text-heading">
-                  {t('text-website')}
+                  {t('Mail')}
                 </span>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-body">
                     {settings?.contactDetails?.website}
                   </span>
-                  <a
+                  {/* <a
                     href={settings?.contactDetails?.website ?? '#'}
                     target="_blank"
                     rel="noreferrer"
                     className="text-sm font-semibold text-accent hover:text-accent-hover focus:text-blue-500 focus:outline-none"
                   >
                     {t('text-visit-site')}
-                  </a>
+                  </a> */}
                 </div>
               </div>
             )}

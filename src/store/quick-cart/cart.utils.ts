@@ -23,7 +23,7 @@ export function addItemWithQuantity(
     const newItems = [...items];
     newItems[existingItemIndex].quantity! += quantity;
     
-    console.log("newItems", newItems )
+    // console.log("newItems", newItems )
     return newItems;
   }  
   return [...items, { ...item, quantity }];

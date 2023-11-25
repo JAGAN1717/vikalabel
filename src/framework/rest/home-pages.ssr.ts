@@ -64,8 +64,7 @@ export const getStaticProps: GetStaticProps<
     pageType = pages[0];
   }
   
-  console.log("shgdsjdsgdjd",  params!)
- 
+  // console.log("shgdsjdsgdjd",  params!)
 
   // if (!types?.some((t) => t.slug === pageType)) {
     if (!types?.some((t) => t.slug === 'clothing')) {

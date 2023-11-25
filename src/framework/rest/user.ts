@@ -206,6 +206,8 @@ export function useSendOtpCode({
   let [serverError, setServerError] = useState<string | null>(null);
   const [otpState, setOtpState] = useAtom(optAtom);
 
+  // console.log("gkgkjkjl",client.users)
+
   const { mutate, isLoading } = useMutation(client.users.sendOtpCode, {
     onSuccess: (data) => {
       if (!data.success) {
@@ -339,7 +341,7 @@ export function useResendVerificationEmail() {
     {
       onSuccess: (data) => {
         if (data?.success) {
-          toast.success(t('PICKBAZAR_MESSAGE.EMAIL_SENT_SUCCESSFUL'));
+          toast.success(t('VIKALABEL_MESSAGE.EMAIL_SENT_SUCCESSFUL'));
         }
       },
       onError: (error) => {

@@ -23,7 +23,7 @@ const CategoryBadges = ({ onClose, categories, basePath }: Props) => {
       <div className="flex flex-row flex-wrap">
         {categories?.map((category: any) => (
           <button
-            onClick={() => handleClick(`${basePath}?category=${category.slug}`)}
+            onClick={() => handleClick(`${basePath}/search?category=${category.slug}`)}
             key={category.id}
             className="mb-2 whitespace-nowrap rounded border border-border-200 bg-transparent py-1 px-2.5 text-sm lowercase tracking-wider text-heading transition-colors hover:border-accent hover:text-accent focus:bg-opacity-100 focus:outline-0 ltr:mr-2 rtl:ml-2"
           >

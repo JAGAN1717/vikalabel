@@ -22,6 +22,7 @@ export type LayoutProps = {
 
 export interface HomePageProps {
   variables: {
+    type(type: any): { type: any; };
     products: any;
     popularProducts?: any;
     bestSellingProducts?: any;
@@ -224,6 +225,7 @@ export interface RatingCount {
 }
 
 export interface Category {
+  type: any;
   id: string;
   name: string;
   slug: string;
@@ -480,8 +482,8 @@ export interface Refund {
 }
 
 export enum PaymentGateway {
-  STRIPE = 'STRIPE',
   COD = 'CASH_ON_DELIVERY',
+  STRIPE = 'STRIPE',
   CASH = 'CASH',
   FULL_WALLET_PAYMENT = 'FULL_WALLET_PAYMENT',
   PAYPAL = 'PAYPAL',
@@ -556,6 +558,7 @@ export interface User {
   };
   address: Address[];
   payment_gateways?: UserPaymentGateway[];
+  wishlistCount:string;
 }
 
 export interface UserPaymentGateway {
@@ -580,6 +583,7 @@ export type SocialLoginInputType = {
 };
 export type SendOtpCodeInputType = {
   phone_number: string;
+  user_id:any;
 };
 
 export interface RegisterUserInput {

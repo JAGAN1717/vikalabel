@@ -33,17 +33,20 @@ const StickySidebarListCategories: React.FC<
   }
   return (
     <aside
-      className={`hidden h-full bg-light lg:sticky mt-7 lg:top-22 xl:block xl:w-72 ${className}`}
+      className={`hidden h-full bg-light lg:sticky mt-7 lg:top-22 md:block xl:w-72 ${className}`}
     >
       {!isMobile && (
-        <div className="max-h-full  grow overflow-hidden side_cartgoryBar">
+        // <div className="max-h-full  grow overflow-hidden side_cartgoryBar">
+        <div className="max-h-full  grow overflow-hidden ">
           <Scrollbar
             className="max-h-screen w-full"
-            style={{ height: 'calc(70vh - 5.35rem)' }}
+            // style={{ height: 'calc(70vh - 5.35rem)' }}
           >
             {!notFound ? (
-              <div className="px-5">
-                <TreeMenu items={categories} className="xl:py-8 " />
+              // <div className="px-5">
+              <div className="">
+                {/* <TreeMenu items={categories} className="xl:py-8 " /> */}
+                <TreeMenu items={categories} className="" />
               </div>
             ) : (
               <div className="min-h-full w-full px-9 pt-6 pb-8 lg:p-8">

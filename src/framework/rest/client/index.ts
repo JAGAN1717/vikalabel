@@ -252,6 +252,7 @@ class Client {
         language,
       }),
   };
+
   manufacturers = {
     all: ({ name, ...params }: Partial<ManufacturerQueryOptions>) =>
       HttpClient.get<ManufacturerPaginator>(API_ENDPOINTS.MANUFACTURERS, {
@@ -342,7 +343,8 @@ class Client {
     socialLogin: (input: SocialLoginInputType) =>
       HttpClient.post<AuthResponse>(API_ENDPOINTS.SOCIAL_LOGIN, input),
     sendOtpCode: (input: SendOtpCodeInputType) =>
-      HttpClient.post<OTPResponse>(API_ENDPOINTS.SEND_OTP_CODE, input),
+      // HttpClient.post<OTPResponse>(API_ENDPOINTS.SEND_OTP_CODE, input),
+      HttpClient.post<OTPResponse>(API_ENDPOINTS.UPDATE_CONTACT, input),
     verifyOtpCode: (input: VerifyOtpInputType) =>
       HttpClient.post<OTPVerifyResponse>(API_ENDPOINTS.VERIFY_OTP_CODE, input),
     OtpLogin: (input: OtpLoginInputType) =>
@@ -423,6 +425,18 @@ class Client {
       });
     },
   };
+
+  Counter = {
+    all:(params?:any) => 
+    HttpClient.get<any>(API_ENDPOINTS.COUNTERUP,{ ...params }),
+    page:(params?:any) => 
+    HttpClient.get<any>(API_ENDPOINTS.FRONTPAGE,{ ...params }),
+    luxe:(params?:any) => 
+    HttpClient.get<any>(API_ENDPOINTS.LUXE_S,{ ...params }),
+    insta:(params?:any) => 
+    HttpClient.get<any>(API_ENDPOINTS.INSTAGRAM,{ ...params })
+  }
+
   cards = {
     all: (params?: any) =>
       HttpClient.get<Card[]>(API_ENDPOINTS.CARDS, { ...params }),

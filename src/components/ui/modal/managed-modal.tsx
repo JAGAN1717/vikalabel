@@ -98,6 +98,7 @@ const ManagedModal = () => {
       )}
       {view === 'ADD_OR_UPDATE_PROFILE_CONTACT' && (
         <ProfileAddOrUpdateContact />
+        // <AddOrUpdateCheckoutContact />
       )}
       {view === 'DELETE_ADDRESS' && <AddressDeleteView />}
       {view === 'PRODUCT_DETAILS' && (

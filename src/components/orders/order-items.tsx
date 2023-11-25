@@ -14,7 +14,7 @@ const OrderItemList = (_: any, record: any) => {
   const { price } = usePrice({
     amount: record.pivot?.unit_price,
   });
-  let name = record.name;
+  let name = record.name ?? '';
   if (record?.pivot?.variation_option_id) {
     const variationTitle = record?.variation_options?.find(
       (vo: any) => vo?.id === record?.pivot?.variation_option_id

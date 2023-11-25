@@ -60,6 +60,7 @@ const Details: React.FC<Props> = ({
     slug,
     ratings,
     video,
+    in_wishlist
   } = product ?? {};
 
   const { t } = useTranslation('common');
@@ -95,6 +96,7 @@ const Details: React.FC<Props> = ({
     closeModal();
   };
 
+  
   const variations = useMemo(
     () => getVariations(product?.variations),
     [product?.variations]
@@ -107,9 +109,10 @@ const Details: React.FC<Props> = ({
         o.options.map((v: any) => v.value).sort(),
         Object.values(attributes).sort()
       )
-    );
-  }
-
+      );
+    }
+    // console.log("priceprice",selectedVariation)
+    
   const scrollDetails = () => {
     scroller.scrollTo('details', {
       smooth: true,
@@ -167,6 +170,7 @@ const Details: React.FC<Props> = ({
               <div>
                 <FavoriteButton
                   productId={id}
+                  wishlist={in_wishlist}
                   className={classNames({ 'mr-1': isModal })}
                 />
               </div>
@@ -232,7 +236,8 @@ const Details: React.FC<Props> = ({
                   data={product}
                   variant="big"
                   variation={selectedVariation}
-                  disabled={selectedVariation?.is_disable || !isSelected}
+                  // disabled={selectedVariation?.is_disable || !isSelected || !Number(quantity) > 0 || !selectedVariation }
+                  disabled={selectedVariation?.is_disable || !isSelected || !Number(quantity) > 0  }
                 />
               </div>
 

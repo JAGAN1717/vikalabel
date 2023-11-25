@@ -77,6 +77,7 @@ export const deliveryTimeAtom = atom(
 export const paymentGatewayAtom = atom(
   (get) => get(checkoutAtom).payment_gateway,
   (get, set, data: PaymentGateway) => {
+    // console.log("sdhgsdkssdsd",data)
     const prev = get(checkoutAtom);
     return set(checkoutAtom, { ...prev, payment_gateway: data });
   }

@@ -9,6 +9,8 @@ import ErrorMessage from '@/components/ui/error-message';
 import { useProducts } from '@/framework/product';
 import { PRODUCTS_PER_PAGE } from '@/framework/client/variables';
 import type { Product } from '@/types';
+import { useRouter } from 'next/router';
+
 
 interface Props {
   limit?: number;
@@ -42,6 +44,8 @@ export function Grid({
 
   if (error) return <ErrorMessage message={error.message} />;
 
+  const router = useRouter()
+
   if (!isLoading && !products?.length) {
     return (
       <div className="w-full min-h-full px-4 pt-6 pb-8 lg:p-8">
@@ -51,9 +55,20 @@ export function Grid({
   }
 
   return (
-    <section className=''>
+    <section className='mt-5'>
       <div className='container mx-auto'>
+        {
+          window.location.pathname == '/' &&
+          <div className='flex justify-center w-full mb-6 hidden'>
+          <div className='text-center '>
+          <p className='uppercase'>HOTTEST DISCOUNT OF THE SEASON</p>
+            <h6 className='font-bold sm:text-3xl text-2xl mb-2'>With Love From Us, To You</h6>
+            <div className='flex justify-center w-full'><img src="/img/frame.png" className='w-32' /></div>
+          </div>
+        </div>
+        }
     <div className={cn('w-full', className)}>
+
       <div
         className={cn(
           {
@@ -64,7 +79,8 @@ export function Grid({
           },
           gridClassName
         )}
-      >
+      >  
+
         {isLoading && !products?.length
           ? rangeMap(limit, (i) => (
               <ProductLoader key={i} uniqueKey={`product-${i}`} />
@@ -73,7 +89,7 @@ export function Grid({
               <ProductCard product={product} key={product.id} />
             ))}
       </div>
-      {hasMore && (
+      {  window.location.pathname != '/' && hasMore && (
         <div className="flex justify-center mt-8 lg:mt-12">
           <Button
             loading={isLoadingMore}
@@ -81,10 +97,24 @@ export function Grid({
             className="text-sm font-semibold h-11 btn_new md:text-base"
           >
             {/* {t('text-load-more')} */}
-            {t('Expolre Other Products')}
+            {t('Explore Other Products')}
           </Button>
         </div>
-      )}
+      )} 
+
+      {
+        window.location.pathname == '/' && hasMore &&  
+        <div className="flex justify-center mt-8 lg:mt-12">
+        <Button
+          loading={isLoadingMore}
+          onClick={()=> router.push('/clothing/search')}
+          className="text-sm font-semibold h-11 btn_new md:text-base"
+        >
+          {/* {t('text-load-more')} */}
+          {t('Explore Other Products')}
+        </Button>
+      </div>
+      }
     </div>
       </div>
     </section>

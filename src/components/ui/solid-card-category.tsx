@@ -7,14 +7,20 @@ import { Swiper, SwiperSlide, Navigation } from '@/components/ui/slider';
 import { productPlaceholder } from '@/lib/placeholders';
 import { Image } from '@/components/ui/image';
 import Link from './link';
+import { useRouter } from 'next/router';
 
 interface CategoryItemProps {
   item: any;
 }
 const CategoryItem: React.FC<CategoryItemProps> = ({ item }) => {
+  
+  const router = useRouter()
+
   return (
-    <div className="group relative cursor-pointer overflow-hidden text-center">
-      <Link href={`/${item?.type?.slug}/search/?category=${item.slug}`}>
+    <div className="group relative cursor-pointer overflow-hidden text-center" onClick={()=>router.push({pathname:`/${item?.type?.slug}/search/`,query:{'category':item.slug}})}>
+      {/* router.push({pathname:`/${data?.type?.slug}/search/`,query:{'category':data.slug}} */}
+      {/* <Link href={`/${item?.type?.slug}/search/?category=${item.slug}`}> */}
+      <div>
         <Image
           src={item?.image?.original! ?? productPlaceholder}
           alt={item?.name!}
@@ -22,9 +28,9 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ item }) => {
           height={240}
           className="rounded-md"
         />
-      </Link>
+      </div>
       {/* <span className="mt-2 block text-base font-semibold text-heading transition-colors group-hover:text-orange-500 ltr:text-left rtl:text-right"> */}
-      <span className="mt-2 block text-base font-semibold text-heading transition-colors group-hover:text-green-500 text-center">
+      <span className="mt-2 block text-base font-semibold text-heading transition-colors group-hover:text-lime-900 text-center">
         {item.name}
       </span>
     </div>

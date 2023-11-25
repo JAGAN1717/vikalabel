@@ -48,7 +48,7 @@ function createApolloClient() {
     const token = useToken();
     if (graphQLErrors)
       graphQLErrors.map(({ message, locations, path }) => {
-        if (message === 'PICKBAZAR_ERROR.NOT_AUTHORIZED') {
+        if (message === 'VIKALABEL_ERROR.NOT_AUTHORIZED') {
           // every 401/unauthorized error will be caught here and update the global local state
           Cookies.remove(AUTH_TOKEN_KEY);
           Router.reload();

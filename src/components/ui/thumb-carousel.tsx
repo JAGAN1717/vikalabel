@@ -79,21 +79,32 @@ export const ThumbsCarousel: React.FC<Props> = ({
               />
             </SwiperSlide>
           ))}
+          {/* <video className="img_gallery_company" width="400" controls>
+https://vl.vrikshatech.in/api/public/import-variation-options/
+                <source className="img_gallery_company"  src={video} type='video/mp4' />
+                </video> */}
           {video?.length
             ? video.map((item: any, index: number) => (
-                <SwiperSlide key={`product-video-${index}`}>
-                  {item.url.includes('iframe') ? (
-                    <div
-                      className="product-video-iframe"
-                      dangerouslySetInnerHTML={{ __html: item.url }}
-                    />
-                  ) : (
-                    <div className="product-video-iframe">
-                      <video controls src={item.url} />
-                    </div>
-                  )}
-                </SwiperSlide>
-              ))
+              <SwiperSlide key={`product-video-${index}`}>
+                {item.url.includes('iframe') ? (
+                  <div
+                    className="product-video-iframe"
+                    dangerouslySetInnerHTML={{ __html: item.url }}
+                  />
+                ) : (
+                  // <div className="product-video-iframe">
+                  //   <video controls src={item.url} />
+                  // </div>
+                  <div className="product-video-iframe">
+                    <iframe
+                      src={item.url}
+                      frameborder="0"
+                      allowfullscreen 
+                    ></iframe>
+                  </div>
+                )}
+              </SwiperSlide>
+            ))
             : null}
         </Swiper>
         <div
@@ -152,22 +163,22 @@ export const ThumbsCarousel: React.FC<Props> = ({
           ))}
           {video?.length
             ? video.map((item: any, index: number) => (
-                <SwiperSlide
-                  key={`product-video-${index}`}
-                  className="relative flex cursor-pointer items-center justify-center overflow-hidden rounded border border-border-200 border-opacity-75 hover:opacity-75"
-                >
-                  {/* <Image
+              <SwiperSlide
+                key={`product-video-${index}`}
+                className="relative flex cursor-pointer items-center justify-center overflow-hidden rounded border border-border-200 border-opacity-75 hover:opacity-75"
+              >
+                {/* <Image
                     src={productPlaceholder}
                     alt={`Product Video ${item.id}`}
                     width={80}
                     height={80}
                   /> */}
-                  <div className="h-20 w-20" />
-                  <div className="absolute top-1/2 left-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent-400 text-white">
-                    <PlayIcon className="h-4 w-4" />
-                  </div>
-                </SwiperSlide>
-              ))
+                <div className="h-20 w-20" />
+                <div className="absolute top-1/2 left-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent-400 text-white">
+                  <PlayIcon className="h-4 w-4" />
+                </div>
+              </SwiperSlide>
+            ))
             : null}
         </Swiper>
       </div>

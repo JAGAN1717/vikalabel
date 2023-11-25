@@ -543,7 +543,7 @@ export function useResendVerificationEmail() {
         toast.success(t('common:email-send-successfully'));
       }
     },
-    onError: () => toast.error('common:PICKBAZAR_ERROR.SOMETHING_WENT_WRONG')
+    onError: () => toast.error('common:VIKALABEL_ERROR.SOMETHING_WENT_WRONG')
   });
   function resendEmail() {
     resendVerificationEmailMutation();
@@ -562,7 +562,7 @@ export function useUpdateEmail() {
         toast.success(t('common:successfully-email-updated'));
       }
     },
-    onError: () => toast.error('common:PICKBAZAR_ERROR.SOMETHING_WENT_WRONG')
+    onError: () => toast.error('common:VIKALABEL_ERROR.SOMETHING_WENT_WRONG')
   });
   function updateEmail(values: UpdateEmailUserInput) {
     updateUserEmailMutation({

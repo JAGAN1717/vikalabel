@@ -134,6 +134,9 @@ export const PlaceOrderAction: React.FC<{
   const isAllRequiredFieldSelected = formatRequiredFields.every(
     (item) => !isEmpty(item)
   );
+
+  // console.log("skjshksjhdsd",formatRequiredFields)
+
   return (
     <>
       <Button

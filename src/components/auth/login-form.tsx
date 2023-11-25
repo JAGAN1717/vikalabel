@@ -91,7 +91,7 @@ function LoginForm() {
           {t('text-or')}
         </span>
       </div>
-      <div className="mt-2 grid grid-cols-2 gap-4">
+      <div className="mt-2 grid grid-cols gap-4">
         <Button
           className="!bg-social-google text-sm !text-light hover:!bg-social-google-hover"
           disabled={isLoading}
@@ -103,7 +103,7 @@ function LoginForm() {
           {t('text-login-google')}
         </Button>
 
-        <Button
+        {/* <Button
           className="h-11 w-full !bg-gray-500 text-sm !text-light hover:!bg-gray-600 sm:h-12"
           disabled={isLoading}
           onClick={() => openModal('OTP_LOGIN')}
@@ -121,7 +121,7 @@ function LoginForm() {
             <AnonymousIcon className="h-6 text-light ltr:mr-2 rtl:ml-2" />
             {t('text-guest-checkout')}
           </Button>
-        )}
+        )} */}
       </div>
       <div className="relative mt-8 mb-6 flex flex-col items-center justify-center text-sm text-heading sm:mt-11 sm:mb-8">
         <hr className="w-full" />
@@ -147,7 +147,8 @@ export default function LoginView() {
         <Logo />
       </div>
       <p className="mt-4 mb-8 text-center text-sm text-body sm:mt-5 sm:mb-10 md:text-base">
-        {t('login-helper')}
+        {/* {t('login-helper')} */}
+        {t('Login with your Email & Password')}
       </p>
       <LoginForm />
     </div>

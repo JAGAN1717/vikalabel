@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import type { Order } from '@/types';
 
 const selectedOrderAtom = atom<Order | null>(null);
+
 export function useSelectedOrder() {
   return useAtom(selectedOrderAtom);
 }

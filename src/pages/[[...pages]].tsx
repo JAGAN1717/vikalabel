@@ -38,7 +38,6 @@ const Home: NextPageWithLayout<
   // const { type } = useType(variables.types.type);
   const { type } = useType('clothing');
 
-  console.log('variables.types.type',variables.types.type)
 
   useEffect(() => {
     if (query.text || query.category) {
@@ -61,7 +60,8 @@ const Home: NextPageWithLayout<
   );
 };
 
-Home.getLayout = function getLayout(page) {
+Home.getLayout = function getLayout(page) {  
+
   return <HomeLayout layout={page.props.layout}>{page}</HomeLayout>;
 };
 

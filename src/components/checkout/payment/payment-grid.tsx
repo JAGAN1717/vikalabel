@@ -36,6 +36,8 @@ interface PaymentMethodInformation {
   component: React.FunctionComponent;
 }
 
+// export type PaymentMethodName = 'CASH_ON_DELIVERY';
+
 interface PaymentGroupOptionProps {
   payment: PaymentMethodInformation;
   theme?: string;
@@ -55,7 +57,7 @@ const PaymentGroupOption: React.FC<PaymentGroupOptionProps> = ({
   theme,
 }) => {
   return (
-    <RadioGroup.Option value={value} key={value}>
+    <RadioGroup.Option value={value} key={value} >
       {({ checked }) => (
         <div
           className={cn(
@@ -83,6 +85,7 @@ const PaymentGrid: React.FC<{ className?: string; theme?: 'bw' }> = ({
 }) => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [gateway, setGateway] = useAtom(paymentGatewayAtom);
+  // console.log('paymentGatewayAtom',gateway)
   const { t } = useTranslation('common');
   const { settings, isLoading } = useSettings();
   // If no payment gateway is set and cash on delivery also disable then cash on delivery will be on by default
@@ -217,14 +220,16 @@ const PaymentGrid: React.FC<{ className?: string; theme?: 'bw' }> = ({
   // }, [isLoading, cashOnDelivery, defaultGateway, availableGateway]);
 
   useEffect(() => {
-    if (settings && availableGateway) {
+    if (settings && settings?.useEnableGateway &&  availableGateway) {
       setGateway(
         settings?.defaultPaymentGateway?.toUpperCase() as PaymentGateway
       );
     } else {
       setGateway(PaymentGateway.COD);
     }
+    
   }, [isLoading, cashOnDelivery, defaultGateway, availableGateway]);
+
 
   const PaymentMethod = AVAILABLE_PAYMENT_METHODS_MAP[gateway];
   const Component = PaymentMethod?.component ?? CashOnDelivery;

@@ -32,8 +32,10 @@ module.exports = {
         '-1': '-1',
       },
       fontFamily: {
-        body: ['system-ui', 'sans-serif'],
-        heading: ['system-ui', 'sans-serif'],
+        body: ['Raleway'],
+        heading: ['Raleway'],
+        // body: ['system-ui', 'Raleway'],
+        // heading: ['system-ui', 'Raleway'],
       },
       fontSize: {
         '10px': '0.625rem',

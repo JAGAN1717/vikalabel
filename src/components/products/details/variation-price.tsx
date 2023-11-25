@@ -16,6 +16,9 @@ export default function VariationPrice({
       baseAmount: Number(selectedVariation.price),
     }
   );
+
+  // console.log('pppppp',price)
+
   const { price: min_price } = usePrice({
     amount: Number(minPrice),
   });

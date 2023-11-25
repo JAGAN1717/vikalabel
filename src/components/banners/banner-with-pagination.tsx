@@ -26,7 +26,7 @@ const BannerWithPagination: React.FC<BannerProps> = ({ banners, slug }) => {
             // pagination={true}
             pagination={{
               bulletClass:
-                'swiper-pagination-bullet !w-2.5 !h-2.5 !p-1 !rounded-full bg-gray-400 !border-0 !opacity-70',
+               'swiper-pagination-bullet !w-2.5 !h-2.5 !p-1 !rounded-full bg-gray-400 !border-0 !opacity-70',
               clickableClass: 'cursor-pointer',
               bulletActiveClass: '!bg-accent',
               clickable: true,

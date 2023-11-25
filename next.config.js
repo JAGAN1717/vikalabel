@@ -12,6 +12,7 @@ module.exports = withPWA({
   i18n,
   images: {
     domains: [
+      'vl.vrikshatech.in',
       'pickbazarlaravel.s3.ap-southeast-1.amazonaws.com',
       'pixarlaravel.s3.ap-southeast-1.amazonaws.com',
       'lh3.googleusercontent.com',
@@ -20,23 +21,24 @@ module.exports = withPWA({
       'i.pravatar.cc',
     ],
   },
-  ...(process.env.FRAMEWORK_PROVIDER === 'graphql' && {
-    webpack(config, options) {
-      config.module.rules.push({
-        test: /\.graphql$/,
-        exclude: /node_modules/,
-        use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
-      });
+  // ...(process.env.FRAMEWORK_PROVIDER === 'graphql' && {
+  //   webpack(config, options) {
+  //     config.module.rules.push({
+  //       test: /\.graphql$/,
+  //       exclude: /node_modules/,
+  //       use: [options.defaultLoaders.babel, { loader: 'graphql-let/loader' }],
+  //     });
 
-      config.module.rules.push({
-        test: /\.ya?ml$/,
-        type: 'json',
-        use: 'yaml-loader',
-      });
+  //     config.module.rules.push({
+  //       test: /\.ya?ml$/,
+  //       type: 'json',
+  //       use: 'yaml-loader',
+  //     });
 
-      return config;
-    },
-  }),
+  //     return config;
+  //   },
+  // }),
+  
   ...(process.env.APPLICATION_MODE === 'production' && {
     typescript: {
       ignoreBuildErrors: true,

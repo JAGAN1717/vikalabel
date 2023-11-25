@@ -12,6 +12,7 @@ import type { Order } from '@/types';
 import OrderViewHeader from './order-view-header';
 import OrderStatusProgressBox from '@/components/orders/order-status-progress-box';
 import { OrderStatus, PaymentStatus } from '@/types';
+import { useSettings } from '@/framework/settings';
 
 interface Props {
   order: Order;
@@ -20,6 +21,8 @@ interface Props {
 
 const RenderStatusBadge: React.FC<{ status: string }> = ({ status }) => {
   const { t } = useTranslation('common');
+
+
 
   switch (status.toLowerCase()) {
     case 'approved':
@@ -97,7 +100,13 @@ const OrderDetails = ({ order, loadingStatus }: Props) => {
     billing_address,
     tracking_number,
     refund,
+    created_at,
+    updated_at
   }: any = order ?? {};
+
+
+  const { settings, isLoading } = useSettings();
+
 
   const { price: amount } = usePrice({
     amount: order?.amount,
@@ -115,6 +124,26 @@ const OrderDetails = ({ order, loadingStatus }: Props) => {
     amount: order?.sales_tax,
   });
 
+  // console.log("orderorderorder",order)
+
+  const currentDate = new Date();
+
+const  orderCreate = new Date(updated_at ?? created_at)
+
+// Set the default expiration to 3 days from the current date
+const expirationDate = new Date(orderCreate);
+expirationDate.setDate(orderCreate.getDate() + settings?.maximumQuestionLimit ?? 100);
+const Today = currentDate.toISOString().split('T')[0]
+
+// Format the expiration date as a string (e.g., 'yyyy-mm-dd')
+const formattedExpiration = expirationDate.toISOString().split('T')[0];
+
+// console.log('Current Date:', Today);
+// console.log('Expiration Date:', formattedExpiration);
+// console.log("validddddd",formattedExpiration > Today)
+
+
+
   return (
     <div className="flex w-full flex-col border border-border-200 bg-white lg:w-2/3">
       <div className="flex flex-col items-center p-5 md:flex-row md:justify-between">
@@ -123,7 +152,8 @@ const OrderDetails = ({ order, loadingStatus }: Props) => {
           {tracking_number}
         </h2>
         <div className="flex items-center">
-          {order?.payment_gateway !== 'CASH_ON_DELIVERY' && (
+          {/* {order?.payment_gateway !== 'CASH_ON_DELIVERY'  && ( */}
+          {order?.order_status === 'order-completed' && formattedExpiration > Today  && (
             <RefundView status={refund?.status} orderId={id} />
           )}
           <Link

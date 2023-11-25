@@ -86,23 +86,23 @@ const HeaderMinimal = ({ layout }: { layout: string }) => {
         )}
 
         <div className="hidden shrink-0 items-center space-x-9 rtl:space-x-reverse lg:flex">
-          <GroupsDropdownMenu variant="minimal" />
+          {/* <GroupsDropdownMenu variant="minimal" />
           {isMultilangEnable ? (
             <div className="ms-auto lg:me-5 xl:me-8 2xl:me-10 flex-shrink-0">
               <LanguageSwitcher />
             </div>
           ) : (
             ''
-          )}
-          <CartCounterIconButton />
+          )} */}
+          {/* <CartCounterIconButton /> */}
           <div className="flex items-center space-x-4 rtl:space-x-reverse">
-            <Link
+            {/* <Link
               href={`${process.env.NEXT_PUBLIC_ADMIN_URL}/register`}
               variant="button"
               target="_blank"
             >
               {t('text-become-seller')}
-            </Link>
+            </Link> */}
             {isAuthorize ? <AuthorizedMenu minimal={true} /> : <JoinButton />}
           </div>
         </div>
