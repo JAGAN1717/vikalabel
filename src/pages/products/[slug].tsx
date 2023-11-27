@@ -85,7 +85,7 @@ const ProductPage: NextPageWithLayout<
         </div>
         {width > 1023 && <CartCounterButton />}
       </AttributesProvider>
-      <button  className='fixed rounded-full top_arrow h-12 w-12 wat-icon'  title="Whatsapp" onClick={(()=> window.open(`${whatsapp?.data}` ?? 'https://wa.me','_blank'))} >
+      <button  className='fixed rounded-full top_arrow h-12 w-12 wat-icon'  title="Whatsapp" onClick={(()=> window.open(whatsapp?.data ?? 'https://wa.me','_blank'))} >
             {/* <i className="fa fa-angle-double-up text-light" aria-hidden="true"></i> */}
              {/* <img src='/img/Up-arrow-white.png' className='' /> */}
              <img src='/img/Instagram.jpg' className='rounded-full' />
