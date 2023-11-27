@@ -434,7 +434,9 @@ class Client {
     luxe:(params?:any) => 
     HttpClient.get<any>(API_ENDPOINTS.LUXE_S,{ ...params }),
     insta:(params?:any) => 
-    HttpClient.get<any>(API_ENDPOINTS.INSTAGRAM,{ ...params })
+    HttpClient.get<any>(API_ENDPOINTS.INSTAGRAM,{ ...params }),
+    whatsapp:(params?:any) => 
+    HttpClient.get<any>(API_ENDPOINTS.WHATSAPPLINK,{ ...params }),
   }
 
   cards = {

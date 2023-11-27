@@ -9,6 +9,9 @@ import AverageRatings from '@/components/reviews/average-ratings';
 import ProductReviews from '@/components/reviews/product-reviews';
 import isEmpty from 'lodash/isEmpty';
 import dynamic from 'next/dynamic';
+import { useQuery } from 'react-query';
+import client from '@/framework/client';
+import { API_ENDPOINTS } from '@/framework/client/api-endpoints';
 
 import { getStaticPaths, getStaticProps } from '@/framework/product.ssr';
 export { getStaticPaths, getStaticProps };
@@ -30,7 +33,12 @@ const ProductPage: NextPageWithLayout<
 > = ({ product }: any) => {
   const { width } = useWindowSize();
 
-  // console.log('productproduct',product)
+    const { data: whatsapp } = useQuery(
+    [API_ENDPOINTS.WHATSAPPLINK, 'whatsapp'],
+    () => client.Counter.whatsapp()
+  )
+
+  // console.log('productproduct',whatsapp?.data )
 
   return (
     <>
@@ -77,6 +85,11 @@ const ProductPage: NextPageWithLayout<
         </div>
         {width > 1023 && <CartCounterButton />}
       </AttributesProvider>
+      <button  className='fixed rounded-full top_arrow h-12 w-12 wat-icon'  title="Whatsapp" onClick={(()=> window.open(`${whatsapp?.data}` ?? 'https://wa.me','_blank'))} >
+            {/* <i className="fa fa-angle-double-up text-light" aria-hidden="true"></i> */}
+             {/* <img src='/img/Up-arrow-white.png' className='' /> */}
+             <img src='/img/Instagram.jpg' className='rounded-full' />
+            </button>
     </>
   );
 };

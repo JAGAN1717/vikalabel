@@ -18,8 +18,6 @@ function makeTitleToDOMId(title: string) {
 }
 
 
-
-
 export default function ReturnpolicyPage() {
   const { t } = useTranslation('terms');
   const { title, date, content } = termsAndServices;
@@ -30,8 +28,6 @@ export default function ReturnpolicyPage() {
     [API_ENDPOINTS.FRONTPAGE, 'terms'],
     ({ queryKey }) => client.Counter.page()
   )
-
-
 
 
   useEffect(() => {

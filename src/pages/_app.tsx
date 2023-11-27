@@ -23,6 +23,7 @@ import ErrorMessage from '@/components/ui/error-message';
 import PageLoader from '@/components/ui/loaders/page-loader';
 import { useSettings } from '@/framework/settings';
 
+
 Router.events.on('routeChangeStart', nProgress.start)
 Router.events.on('routeChangeError', nProgress.done)
 Router.events.on('routeChangeComplete', nProgress.done)
@@ -60,6 +61,8 @@ function CustomApp({
   const authenticationRequired = Component.authenticationRequired ?? false;
   const { locale } = useRouter();
   const dir = getDirection(locale);
+
+
 
  
 
@@ -124,12 +127,12 @@ function CustomApp({
             </SearchProvider>
           </QueryProvider>
         </SessionProvider>
-            {/* <button onClick={()=>topFunction()} id="myBtnsdsdd" className='fixed bg-accent hidden rounded-full top_arrow h-12 p-5 w-12'  title="Go to top"> */}
-            <button  className='fixed   rounded-full top_arrow h-12 w-12 wat-icon'  title="Go to top">
-            {/* <i className="fa fa-angle-double-up text-light" aria-hidden="true"></i> */}
-             {/* <img src='/img/Up-arrow-white.png' className='' /> */}
+            {/* <button onClick={()=>topFunction()} id="myBtnsdsdd" className='fixed bg-accent hidden rounded-full top_arrow h-12 p-5 w-12'  title="Go to top"> https://wa.me/+919345025324?text=Hello%20vikalabel! https://web.whatsapp.com/send?phone=+919345025324&text=Hello%20vikalabel! */}
+            {/* <button  className='fixed rounded-full top_arrow h-12 w-12 wat-icon'  title="Whatsapp" onClick={(()=> window.open('https://wa.me/+919345025324?text=Hello%20vikalabel!','_blank'))} >
+            <i className="fa fa-angle-double-up text-light" aria-hidden="true"></i>
+             <img src='/img/Up-arrow-white.png' className='' />
              <img src='/img/Instagram.jpg' className='rounded-full' />
-            </button>
+            </button> */}
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 export const API_ENDPOINTS = {
   INSTAGRAM : '/instagramPostsGet',
+  WHATSAPPLINK:'/whatsappLink',
   LUXE_S:'/home-luxe-section-get',
   FRONTPAGE:'/get-frontend-pages',
   COUNTERUP:'/counterup-get',
